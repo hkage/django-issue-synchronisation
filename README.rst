@@ -47,7 +47,7 @@ Installation
 
 #. Run:: 
     
-	``python manage.py syncdb`` 
+	$ python manage.py syncdb
     
    to create the needed tables.
    
