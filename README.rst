@@ -31,12 +31,12 @@ Installation
 
 #. Get the code::
 
- $ pip install django-issue-synchronisation
- $ easy_install django-issue-synchronisation
+	$ pip install django-issue-synchronisation
+	$ easy_install django-issue-synchronisation
  
-   or for the latest development version:
+   or for the latest development version::
 
- $ git clone git://github.com/hkage/django-issue-synchronisation.git
+	$ git clone git://github.com/hkage/django-issue-synchronisation.git
  
 #. Add `issues` to the list of `INSTALLED_APPS`::
 
@@ -46,20 +46,27 @@ Installation
 	)
 
 #. Run:: 
-    ``python manage.py syncdb`` 
+    
+	``python manage.py syncdb`` 
     
    to create the needed tables.
+   
+Configuration
+=============
+
+Currently django-issue-synchronisation doesn't support any configuration or
+setting parameters.
 
 Supported issue tracking systems
 ================================
 
-============= ========= ============= ===========
-Issue tracker Protocoll Type          tested with
-============= ========= ============= ===========
-`Github`__    HTTP      decentralized
-`Roundup`__   XML-RPC   both          1.4.15
-`Trac`__      XML-RPC   both          0.12
-============= ========= ============= ===========
+============= ========= ========================  ===========
+Issue tracker Protocoll Type                      tested with
+============= ========= ========================  ===========
+`Github`__    HTTP      decentralized [#decent]_
+`Roundup`__   XML-RPC   both                      1.4.15
+`Trac`__      XML-RPC   both                      0.12
+============= ========= ========================  ===========
 
 __ https://github.com/hkage/inhouse-web
 __ http://trac.edgewall.org
@@ -67,3 +74,6 @@ __ https://github.com/andialbrecht
 __ http://www.github.com
 __ http://www.roundup-tracker.org/
 __ http://trac.edgewall.org
+
+.. [#decent] Decentralized issue trackers are restriced to one location/URL. 
+ They don't work with local instances and will be hard coded against their URLs.
