@@ -29,7 +29,7 @@ Features
 Installation
 ============
 
-Get the code:
+Get the code::
 
  $ pip install django-issue-synchronisation
  $ easy_install django-issue-synchronisation
@@ -38,7 +38,12 @@ or for the latest development version:
 
  $ git clone git://github.com/hkage/django-issue-synchronisation.git
  
-Add ``issues`` to the list of ``INSTALLED_APPS``.
+Add ``issues`` to the list of ``INSTALLED_APPS``::
+
+ INSTALLED_APPS = (
+ ...
+ 'issues'
+  )
 
 Run ``python manage.py syncdb`` to create the needed tables.
 
