@@ -3,7 +3,7 @@ django-issue-synchronisation
 ============================
 
 The idea behind this project started with an internal web based working time tracking 
-software I wrote for our company (`Ìnhouse-Web`__ became the Open Source spinoff
+software I wrote for our company (`Inhouse-Web`__ became the Open Source spinoff
 project for this idea). We needed a mechanism to synchronize `Trac`__ issues 
 automatically, and provide an autocompletion feature for issue based worktime 
 bookings. As issue data is always based upon more or less similar information, I 
@@ -28,6 +28,19 @@ Features
 
 Installation
 ============
+
+Get the code:
+
+ $ pip install django-issue-synchronisation
+ $ easy_install django-issue-synchronisation
+ 
+or for the latest development version:
+
+ $ git clone git://github.com/hkage/django-issue-synchronisation.git
+ 
+Add ``issues`` to the list of ``INSTALLED_APPS``.
+
+Run ``python manage.py syncdb`` to create the needed tables.
 
 Supported issue tracking systems
 ================================
