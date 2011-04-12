@@ -40,12 +40,15 @@ Installation
  
 #. Add `issues` to the list of `INSTALLED_APPS`::
 
- INSTALLED_APPS = (
-    # ...
-    'issues'
-  )
+	INSTALLED_APPS = (
+	    # ...
+	    'issues'
+	)
 
-#. Run ``python manage.py syncdb`` to create the needed tables.
+#. Run:: 
+    ``python manage.py syncdb`` 
+    
+   to create the needed tables.
 
 Supported issue tracking systems
 ================================
