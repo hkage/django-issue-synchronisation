@@ -58,6 +58,21 @@ Configuration
 
   Maximum timeout duration of any socket operations in seconds. Default is 10.
 
+Start Synchronization
+=====================
+
+If you plugged in ``django-issue-synchronisation`` into your Django application,
+it will provide some new commands to the ``manage.py`` script. The most
+important of them is the ``sync_issues`` command::
+
+	$ python manage.py sync_issues
+
+This will synchronise all issues trackers, that are defined in the **tracker**
+table. If you want to synchronise only certain trackers, you can use their
+internal ids::
+
+	$ python manage.py sync_issues 1 2
+
 
 Supported issue tracking systems
 ================================

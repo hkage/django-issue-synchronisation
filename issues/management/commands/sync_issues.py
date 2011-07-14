@@ -52,7 +52,7 @@ class Command(BaseCommand):
             retval = self.run(tracker)
 
     def run(self, tracker):
-        timeout = settings.get('SOCKET_TIMEOUT', 10)
+        timeout = getattr(settings, 'SOCKET_TIMEOUT', 10)
         socket.setdefaulttimeout(timeout)
         self.stdout.write('Loading issue tracker \'%s\'\n' % tracker)
         if not tracker.active:

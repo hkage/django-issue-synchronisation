@@ -14,7 +14,7 @@ setup(
     license='GPLv3',
     platform='Any',
     packages=find_packages(),
-    data_files=[('issues/fixtures', ['issues/fixtures/initial_data.json'])],
+    data_files=[('issues/fixtures', ['issues/fixtures/issues.json'])],
     install_requires=['Django>=1.2'],
     classifiers=[
         'Development Status :: 3 - Alpha',

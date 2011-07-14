@@ -13,6 +13,14 @@ from issues.models import Issue, IssueUser, Tracker, UserMapping
 from issues.signals import post_tracker_sync, post_issue_sync
 
 
+STATUS_DUPLICATE = 'duplicate'
+STATUS_FIXED = 'fixed'
+STATUS_INVALID = 'invalid'
+STATUS_WONTFIX = 'wontfix'
+STATUS_WORKSFORME = 'worksforme'
+
+ACTIVE_STATUS = ('', None)
+
 class TracXMLRPC(TrackerPlugin):
 
     id = 'trac-xmlrpc'
@@ -79,8 +87,10 @@ class TracXMLRPC(TrackerPlugin):
             issue.owner = data.get('owner')
             issue.last_change = last_change
             issue.tracker = tracker
-            # issue.active can't be resolved, as Trac allows renaming
+            # Only default status values are allowed as Trac allows renaming
             # of status values.
+            resolution = data.get('resolution')
+            issue.active = resolution in ACTIVE_STATUS
             if not issue.id:
                 issue.created = datetime.now()
             issue.updated = datetime.now()
