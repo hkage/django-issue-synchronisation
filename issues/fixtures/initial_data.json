@@ -1,28 +1,28 @@
 [
   {
-    "pk": 1, 
-    "model": "issues.type", 
+    "pk": 1,
+    "model": "issues.type",
     "fields": {
-      "description": "http://trac.edgewall.org", 
-      "name": "Edgewall Trac", 
-      "cid": "trac"
+      "description": "http://trac.edgewall.org",
+      "name": "Edgewall Trac (XMLRPC)",
+      "cid": "trac-xmlrpc"
     }
-  }, 
+  },
   {
-    "pk": 2, 
-    "model": "issues.type", 
+    "pk": 2,
+    "model": "issues.type",
     "fields": {
-      "description": "https://github.com", 
-      "name": "Github", 
+      "description": "https://github.com",
+      "name": "Github",
       "cid": "github"
     }
-  }, 
+  },
   {
-    "pk": 3, 
-    "model": "issues.type", 
+    "pk": 3,
+    "model": "issues.type",
     "fields": {
-      "description": "http://www.roundup-tracker.org", 
-      "name": "Roundup", 
+      "description": "http://www.roundup-tracker.org",
+      "name": "Roundup",
       "cid": "roundup"
     }
   }

@@ -13,9 +13,9 @@ from issues.models import Issue, IssueUser, Tracker, UserMapping
 from issues.signals import post_tracker_sync, post_issue_sync
 
 
-class Trac(TrackerPlugin):
+class TracXMLRPC(TrackerPlugin):
 
-    id = 'trac'
+    id = 'trac-xmlrpc'
     name = 'Trac XML-RPC issue synchronisation'
 
     def _update_user_data(self, server, data, issue):
