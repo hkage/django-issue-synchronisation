@@ -112,7 +112,10 @@ class Issue(models.Model):
             return query[0]
 
     def get_title(self):
-        """Returns the title of an issue."""
+        """Returns the title of an issue.
+
+        :returns: Title of the issue as a string.
+        """
         if self.no and self.title:
             master = u''
             if self.master:

@@ -4,9 +4,11 @@
 
 from optparse import make_option
 import os
+import socket
 import sys
 import time
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db.models import get_models
 from django.utils.translation import ugettext as _
@@ -50,6 +52,8 @@ class Command(BaseCommand):
             retval = self.run(tracker)
 
     def run(self, tracker):
+        timeout = settings.get('SOCKET_TIMEOUT', 10)
+        socket.setdefaulttimeout(timeout)
         self.stdout.write('Loading issue tracker \'%s\'\n' % tracker)
         if not tracker.active:
             self.stdout.write('Skipping (deactivated)\n')
@@ -59,4 +63,5 @@ class Command(BaseCommand):
         retval = backend.sync(tracker)
         b = time.time()
         self.stdout.write('Syncing took %s second(s)\n' % round(b-a, 3))
+        socket.setdefaulttimeout(None)
         return retval

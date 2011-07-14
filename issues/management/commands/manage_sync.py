@@ -42,5 +42,11 @@ class Command(BaseCommand):
             self.toggle_tracker(tracker, enabled)
 
     def toggle_tracker(self, tracker, value):
+        """De- or activate an issue tracker.
+
+        :param tracker: A :class:`Tracker` instance
+        :param value: ``True`` or ``False``
+        """
+        assert isinstance(value, bool)
         tracker.active = value
         tracker.save()

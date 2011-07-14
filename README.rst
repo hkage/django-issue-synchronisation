@@ -2,19 +2,19 @@
 django-issue-synchronisation
 ============================
 
-The idea behind this project started with an internal web based working time tracking 
+The idea behind this project started with an internal web based working time tracking
 software I wrote for our company (`Inhouse-Web`__ became the Open Source spinoff
-project for this idea). We needed a mechanism to synchronize `Trac`__ issues 
-automatically, and provide an autocompletion feature for issue based worktime 
-bookings. As issue data is always based upon more or less similar information, I 
-thought of building a separate application, that can easily beplugged into a 
-Django based web application to aggregate different issue tracking systems into 
+project for this idea). We needed a mechanism to synchronize `Trac`__ issues
+automatically, and provide an autocompletion feature for issue based worktime
+bookings. As issue data is always based upon more or less similar information, I
+thought of building a separate application, that can easily beplugged into a
+Django based web application to aggregate different issue tracking systems into
 one database.
 
 Thanks
 ======
 
-`Andi Albrecht`__ wrote the first Trac methods, which are the base for the 
+`Andi Albrecht`__ wrote the first Trac methods, which are the base for the
 synchronisation plugin used in django-issue-synchronisation.
 
 Features
@@ -33,29 +33,31 @@ Installation
 
 	$ pip install django-issue-synchronisation
 	$ easy_install django-issue-synchronisation
- 
+
    or for the latest development version::
 
 	$ git clone git://github.com/hkage/django-issue-synchronisation.git
- 
+
 #. Add `issues` to the list of `INSTALLED_APPS`::
 
 	INSTALLED_APPS = (
-	    # ...
+	    # ...,
 	    'issues'
 	)
 
-#. Run:: 
-    
+#. Run::
+
 	$ python manage.py syncdb
-    
+
    to create the needed tables.
-   
+
 Configuration
 =============
 
-Currently django-issue-synchronisation doesn't support any configuration or
-setting parameters.
+``SOCKET_TIMEOUT``
+
+  Maximum timeout duration of any socket operations in seconds. Default is 10.
+
 
 Supported issue tracking systems
 ================================
@@ -75,5 +77,5 @@ __ http://www.github.com
 __ http://www.roundup-tracker.org/
 __ http://trac.edgewall.org
 
-.. [#decent] Decentralized issue trackers are restriced to one location/URL. 
+.. [#decent] Decentralized issue trackers are restriced to one location/URL.
  They don't work with local instances and will be hard coded against their URLs.
