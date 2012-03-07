@@ -54,9 +54,10 @@ Installation
 Configuration
 =============
 
-``SOCKET_TIMEOUT``
+`SOCKET_TIMEOUT`
+----------------
 
-  Maximum timeout duration of any socket operations in seconds. Default is 10.
+Maximum timeout duration of any socket operations in seconds. Default is 10.
 
 Start Synchronization
 =====================
