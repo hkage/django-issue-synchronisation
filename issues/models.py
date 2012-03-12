@@ -40,7 +40,8 @@ class Tracker(models.Model):
     config = models.CharField(max_length=255,
                               verbose_name=_(u'Configuration string'))
     active = models.BooleanField(verbose_name=_(u'Active?'))
-    last_update = models.DateTimeField(verbose_name=_(u'Last update'))
+    last_update = models.DateTimeField(db_column='lastupdate',
+                                       verbose_name=_(u'Last update'))
 
     def __unicode__(self):
         return self.name
@@ -56,8 +57,7 @@ class Issue(models.Model):
         verbose_name_plural = _(u'Issues')
 
     title = models.CharField(max_length=255, verbose_name=_(u'Title'))
-    description = models.CharField(db_column='ti_beschreibung',
-                                   max_length=5000,
+    description = models.CharField(max_length=5000,
                                    verbose_name=_(u'Description'))
     # The internal issue number (depends on the issue tracker)
     no = models.IntegerField(verbose_name=_(u'No.'))
@@ -71,7 +71,8 @@ class Issue(models.Model):
     created = models.DateTimeField(verbose_name=_(u'Creation date'))
     updated = models.DateTimeField(verbose_name=_(u'Update date'))
     # Remote timestamps
-    last_change = models.DateTimeField(verbose_name=_(u'Last change'))
+    last_change = models.DateTimeField(db_column='lastchange',
+                                       verbose_name=_(u'Last change'))
 
     def __unicode__(self):
         return self.get_title() or str(self.__class__)
@@ -140,7 +141,7 @@ class UserMapping(models.Model):
 
     user = models.ForeignKey(User, verbose_name=_(u'User'))
     tracker = models.ForeignKey('Tracker', verbose_name=_(u'Issue tracker'))
-    login_name = models.CharField(max_length=255,
+    login_name = models.CharField(max_length=255, db_column='loginname',
                                   verbose_name=_(u'Login name'))
 
     class Meta:
