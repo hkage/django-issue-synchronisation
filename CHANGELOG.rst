@@ -31,8 +31,7 @@ Release 0.1.4 (September 27, 2010)
 Features
  * Added the `manage_sync` command.
  * Additional fields for the Issue model:
-   - master (optional, depending on issue tracker and it's support for
-     master/slave issues)
+   - master (optional, depending on issue tracker and it's support for master/slave issues)
    - creation date
    - update date
 
