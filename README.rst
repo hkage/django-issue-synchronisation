@@ -15,7 +15,7 @@ Thanks
 ======
 
 `Andi Albrecht`__ wrote the first Trac methods, which are the base for the
-synchronisation plugin used in django-issue-synchronisation.
+synchronisation plugin used in ``django-issue-synchronisation`.
 
 Features
 ========

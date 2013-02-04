@@ -5,25 +5,11 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 
-class Type(models.Model):
-    """Represents a type of issue tracker.
-
-    The type is used to distinguish between different issue trackers.
-    """
-
-    class Meta:
-        db_table = u'trackertype'
-        ordering = ('id',)
-        verbose_name = _(u'Type')
-        verbose_name_plural = _(u'Types')
-
-    cid = models.CharField(unique=True, max_length=100, verbose_name=_(u'CID'))
-    name = models.CharField(max_length=60, verbose_name=_(u'Name'))
-    description = models.CharField(max_length=255, blank=True, null=True,
-                                   verbose_name=_(u'Description'))
-
-    def __unicode__(self):
-        return self.name
+TRACKER_TYPES = (
+    (1, _(u'Edgewall Trac')),
+    (2, _(u'Github')),
+    (3, _(u'Roundup')),
+    )
 
 
 class Tracker(models.Model):
@@ -35,7 +21,7 @@ class Tracker(models.Model):
         verbose_name = _(u'Issue tracker')
         verbose_name_plural = _(u'Issue tracker')
 
-    type = models.ForeignKey('Type', verbose_name=_(u'Type'))
+    type = models.IntegerField(choices=TRACKER_TYPES, verbose_name=_(u'Type'))
     name = models.CharField(max_length=60, verbose_name=_(u'Name'))
     config = models.CharField(max_length=255,
                               verbose_name=_(u'Configuration string'))

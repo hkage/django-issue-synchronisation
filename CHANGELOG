@@ -1,11 +1,12 @@
-Release 0.1.7 (, 2012)
-----------------
+Release 0.1.7 (, 2013)
+----------------------
 
 Other:
  * Renamed table names (these were in German, due to the historical origin
    and the effort to enable a database table and field name backward
    compatibility).
  * Additional unittests
+ * Replaced the model ``Type`` by normal integer choices
 
 
 Release 0.1.6 (March 14, 2011)
