@@ -7,6 +7,7 @@ Other:
    compatibility).
  * Additional unittests
  * Replaced the model ``Type`` by normal integer choices
+ * Used South to create migrations
 
 
 Release 0.1.6 (March 14, 2011)
