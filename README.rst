@@ -51,28 +51,25 @@ Installation
 
    to create the needed tables.
 
-Configuration
-=============
+Settings
+========
 
-`SOCKET_TIMEOUT`
-----------------
+``SOCKET_TIMEOUT`` (default: 10)
+  Maximum timeout duration of any socket operations in seconds.
 
-Maximum timeout duration of any socket operations in seconds. Default is 10.
+Commands
+========
 
-Start Synchronization
-=====================
+The following ``manage.py`` commands are available after installing the
+application:
 
-If you plugged in ``django-issue-synchronisation`` into your Django application,
-it will provide some new commands to the ``manage.py`` script. The most
-important of them is the ``sync_issues`` command::
+``manage_sync``
+  This command will provide some actions to manage the different tracker
+  defined. See the command help for details.
 
-	$ python manage.py sync_issues
-
-This will synchronise all issues trackers, that are defined in the **tracker**
-table. If you want to synchronise only certain trackers, you can use their
-internal ids::
-
-	$ python manage.py sync_issues 1 2
+``sync_issues TRACKER_ID``
+  Start synchronizing a tracker by it's id. If no id given, all trackers will
+  be updated.
 
 
 Supported issue tracking systems
