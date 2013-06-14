@@ -1,2 +1,2 @@
-include AUTHORS CHANGELOG LICENSE
+include AUTHORS CHANGELOG.rst LICENSE
 recursive-include issues *.py *.html *.json *.sample
