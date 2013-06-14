@@ -59,7 +59,7 @@ class Command(BaseCommand):
             self.stdout.write('Skipping (deactivated)\n')
             return True
         a = time.time()
-        backend = PLUGINS.by_id(tracker.type.cid)
+        backend = PLUGINS.by_id(tracker.type)
         retval = backend.sync(tracker)
         b = time.time()
         self.stdout.write('Syncing took %s second(s)\n' % round(b-a, 3))

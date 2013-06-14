@@ -84,7 +84,7 @@ Issue tracker Protocoll Type                      tested with
 ============= ========= ========================  ===========
 `Github`__    HTTP      decentralized [#decent]_
 `Roundup`__   XML-RPC   both                      1.4.15
-`Trac`__      XML-RPC   both                      0.12
+`Trac`__      XML-RPC   both                      0.12.x
 ============= ========= ========================  ===========
 
 __ https://github.com/hkage/inhouse-web

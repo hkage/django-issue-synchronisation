@@ -28,7 +28,7 @@ def _github_date_to_datetime(value):
 
 class Github(TrackerPlugin):
 
-    id = 'github'
+    id = 2
     name = 'Github issue synchronisation'
     api_url = 'http://github.com/api/v2/json/issues'
 

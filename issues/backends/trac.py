@@ -23,7 +23,7 @@ ACTIVE_STATUS = ('', None)
 
 class TracXMLRPC(TrackerPlugin):
 
-    id = 'trac-xmlrpc'
+    id = 1
     name = 'Trac XML-RPC issue synchronisation'
 
     def _update_user_data(self, server, data, issue):

@@ -48,7 +48,7 @@ def _roundup_date_to_datetime(value):
 
 class Roundup(TrackerPlugin):
 
-    id = 'roundup'
+    id = 3
     name = 'Roundup XML-RPC issue synchronisation'
 
     def _get_users(self, server):
