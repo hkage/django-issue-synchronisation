@@ -7,15 +7,13 @@ setup(
     name='django-issue-synchronisation',
     version=__import__('issues').__version__,
     description='Issue synchronisation for django applications',
-    long_description="""Synchronises different issue trackers into a django based application.""",
+    long_description="""Synchronizes different issue trackers into a django based application.""",
     author='Henning Kage',
-    author_email='henning.kage@googlemail.com',
-    url='http://django-issue-synchronisation.googlecode.com',
+    author_email='henning.kage@gmail.com',
+    url='https://github.com/hkage/django-issue-synchronisation',
     license='GPLv3',
-    platform='Any',
     packages=find_packages(),
     data_files=[('issues/fixtures', ['issues/fixtures/issues.json'])],
-    install_requires=['Django>=1.2'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Framework :: Django',
@@ -24,5 +22,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Software Development :: Bug Tracking'
-        ],
+    ],
 )

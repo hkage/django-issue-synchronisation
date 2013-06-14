@@ -1,7 +1,7 @@
 build/
 dist/
-.idea/
+*.egg-info/
 *~
 *.pyc
-*.tmproj
 *.sublime-*
+*.tmproj
