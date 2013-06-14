@@ -5,6 +5,7 @@ import logging
 import os
 from pkg_resources import parse_version
 import sys
+import traceback
 
 from django.dispatch import Signal
 
@@ -92,20 +93,22 @@ class PluginManager(object):
     def rescan_directories(self):
         def in_list(item, l):
             for x in l:
-                if x.id == item.id \
-                and x.version == item.version:
+                if (x.id == item.id
+                        and x.version == item.version):
                     return True
             return False
         new = dict()
         for path in self._directories:
             for plugin in self.scan_directory(path):
-                if not new.has_key(plugin.id) \
-                or parse_version(new[plugin.id].version) < parse_version(plugin.version):
+                if (not plugin.id in new
+                    or parse_version(new[plugin.id].version)
+                        < parse_version(plugin.version)):
                     new[plugin.id] = plugin
                 else:
-                    if new.has_key(plugin.id):
-                        raise PluginImportError, \
-                              "Cannot import plugin %r, duplicate id found." % plugin
+                    if plugin.id in new:
+                        raise PluginImportError(
+                            "Cannot import plugin %r, duplicate id found."
+                            % plugin)
         old = self._plugins
         new = new.values()
         changed = False
@@ -134,10 +137,10 @@ class PluginManager(object):
             sys.path.append(path)
         plugins = []
         for item in os.listdir(path):
-            if not item.endswith(".py") \
-               or item.startswith(".") \
-               or item.endswith(".pyc") \
-               or item.startswith("__"):
+            if (not item.endswith(".py")
+                    or item.startswith(".")
+                    or item.endswith(".pyc")
+                    or item.startswith("__")):
                 continue
             full_path = os.path.join(path, item)
             if not os.path.isfile(full_path):
@@ -146,7 +149,7 @@ class PluginManager(object):
             try:
                 mod = __import__(os.path.splitext(item)[0])
             except ImportError:
-                import traceback; traceback.print_exc()
+                traceback.print_exc()
                 log.warning("Failed to import %r from %r", item, path)
                 continue
             # Search for Plugin classes
@@ -154,17 +157,17 @@ class PluginManager(object):
                 if name.startswith("_"):
                     continue
                 obj = getattr(mod, name)
-                if isclass(obj) \
-                and issubclass(obj, Plugin) \
-                and obj != Plugin \
-                and obj not in plugins \
-                and obj.id != None:
+                if (isclass(obj)
+                        and issubclass(obj, Plugin)
+                        and obj != Plugin
+                        and obj not in plugins
+                        and obj.id is not None):
                     plugins.append(obj)
         return plugins
 
     def activate_plugin(self, plugin):
-        if not isclass(plugin) \
-        or not issubclass(plugin, Plugin):
+        if (not isclass(plugin)
+                or not issubclass(plugin, Plugin)):
             return
         for item in self._active_plugins:
             if item.id == plugin.id:
@@ -174,8 +177,8 @@ class PluginManager(object):
         i.load()
 
     def deactivate_plugin(self, plugin):
-        if not isclass(plugin) \
-        or not issubclass(plugin, Plugin):
+        if (not isclass(plugin)
+                or not issubclass(plugin, Plugin)):
             return
         for i in range(len(self._active_plugins)):
             item = self._active_plugins[i]
@@ -190,11 +193,11 @@ class PluginManager(object):
         else:
             plugins = self._plugins
         if not plugins:
-            raise PluginLoadError, "No active plugins found"
+            raise PluginLoadError("No active plugins found")
         for pl in plugins:
             if pl.id == id:
                 return pl
-        raise PluginLoadError, "Failed to load plugin with id %r" % id
+        raise PluginLoadError("Failed to load plugin with id %r" % id)
 
     def has_active_plugins(self):
         return len(self._active_plugins) > 0
