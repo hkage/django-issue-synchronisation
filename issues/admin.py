@@ -29,13 +29,6 @@ def sync_tracker(modeladmin, request, queryset):
     sync_tracker.short_description = _(u'Synchronize tickets for selected')
 
 
-class TypeAdmin(admin.ModelAdmin):
-
-    list_display = ('id', 'cid', 'name')
-    list_display_links = ('id', 'name')
-    ordering = ['id']
-
-
 class TrackerAdmin(admin.ModelAdmin):
 
     #actions = [sync_tracker]
@@ -130,5 +123,4 @@ class UserMappingAdmin(admin.ModelAdmin):
 admin.site.register(models.Issue, IssueAdmin)
 admin.site.register(models.IssueUser, IssueUserAdmin)
 admin.site.register(models.Tracker, TrackerAdmin)
-admin.site.register(models.Type, TypeAdmin)
 admin.site.register(models.UserMapping, UserMappingAdmin)
