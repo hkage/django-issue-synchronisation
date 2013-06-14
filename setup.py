@@ -12,7 +12,7 @@ setup(
     author_email='henning.kage@gmail.com',
     url='https://github.com/hkage/django-issue-synchronisation',
     license='GPLv3',
-    packages=find_packages(exclude=('tests',)),
+    packages=find_packages(exclude=('tests', 'example')),
     data_files=[('issues/fixtures', ['issues/fixtures/issues.json'])],
     tests_require=[
         'django>=1.3,<1.6',
