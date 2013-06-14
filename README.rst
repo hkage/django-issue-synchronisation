@@ -42,6 +42,8 @@ Installation
 
 #. Add `issues` to the list of `INSTALLED_APPS`::
 
+.. code-block:: python
+
 	INSTALLED_APPS = (
 	    # ...,
 	    'issues'
