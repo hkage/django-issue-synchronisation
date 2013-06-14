@@ -77,7 +77,7 @@ class Github(TrackerPlugin):
             created = _github_date_to_datetime(data.get('created_at'))
             updated = _github_date_to_datetime(data.get('updated_at'))
             if (created >= tracker.last_update
-                or updated >= tracker.last_update):
+                    or updated >= tracker.last_update):
                 issue = Issue.by_tracker_id(tracker.id, tid)
                 issue.no = tid
                 issue.set_title(data.get('title', ''))

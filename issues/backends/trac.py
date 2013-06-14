@@ -9,7 +9,7 @@ import time
 from xmlrpclib import DateTime, ServerProxy, ProtocolError, Error
 
 from issues.core import TrackerPlugin
-from issues.models import Issue, IssueUser, Tracker, UserMapping
+from issues.models import Issue
 from issues.signals import post_tracker_sync, post_issue_sync
 
 
@@ -20,6 +20,7 @@ STATUS_WONTFIX = 'wontfix'
 STATUS_WORKSFORME = 'worksforme'
 
 ACTIVE_STATUS = ('', None)
+
 
 class TracXMLRPC(TrackerPlugin):
 
@@ -38,7 +39,7 @@ class TracXMLRPC(TrackerPlugin):
         if not reporter in names:
             names.append(reporter)
         if (isinstance(data.get('cc', None), basestring)
-            and len(data.get('cc')) > 0):
+                and len(data.get('cc')) > 0):
             for item in data.get('cc').split(','):
                 if item and not item in names:
                     names.append(item.strip())
@@ -73,7 +74,7 @@ class TracXMLRPC(TrackerPlugin):
         d = DateTime(time.mktime(tracker.last_update.timetuple()))
         self._log.info('Last update: %s' % d)
         tids = server.ticket.getRecentChanges(d)
-        self._log.info('Issue updates: %s' % `tids`)
+        self._log.info('Issue updates: %s' % tids)
         for tid in tids:
             issue = Issue.by_tracker_id(tracker.id, tid)
             id_, cr_date, last_change, data = server.ticket.get(tid)
