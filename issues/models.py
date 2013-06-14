@@ -6,10 +6,11 @@ from django.utils.translation import ugettext_lazy as _
 
 
 TRACKER_TYPES = (
-    (1, _(u'Edgewall Trac')),
-    (2, _(u'Github')),
-    (3, _(u'Roundup')),
-    )
+    (1, u'Edgewall Trac'),
+    (2, u'Github'),
+    (3, u'Roundup'),
+    (4, u'Jira'),
+)
 
 
 class Tracker(models.Model):
