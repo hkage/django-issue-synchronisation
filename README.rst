@@ -2,6 +2,8 @@
 django-issue-synchronisation
 ============================
 
+|buildstatus|_
+
 The idea behind this project started with an internal web based working time tracking
 software I wrote for our company (`Inhouse-Web`__ became the Open Source spinoff
 project for this idea). We needed a mechanism to synchronize `Trac`__ issues
@@ -92,3 +94,6 @@ __ http://trac.edgewall.org
 
 .. [#decent] Decentralized issue trackers are restriced to one location/URL.
  They don't work with local instances and will be hard coded against their URLs.
+
+.. |buildstatus| image:: https://travis-ci.org/hkage/django-issue-synchronisation.png?branch=master
+.. _buildstatus: http://travis-ci.org/hkage/idjango-issue-synchronisation
